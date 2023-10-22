@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pitch Test</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body onload="init()">
+    <h1>Pitch Test</h1>
+    <div><button onclick="playNote('a4')">Test Note</button></div>
+    <br>
+    <div style="display: flex; flex-direction: row; gap: 24px; justify-content: center; font-size: large;">
+      <p id="score">0 out of 0</p>
+      <p id="streak">Streak: 0</p>
+      <p id="accuracy">Accuracy: 0%</p>
+    </div>
+    <br>
+    <div>
+      <canvas id="black-canvas" style="position: absolute; user-select: none;" onpointerdown="onMouseDown(event)" onpointerup="onMouseUp(event)"></canvas>
+      <canvas id="main-canvas"></canvas>
+    </div>
+    <br>
+    <div><button onclick="game.playSequence()">Play Melody</button></div>
+    <p id="game-status"></p>
+    <br>
+    <p id="advance-status"></p>
+  </body>
+</html>
