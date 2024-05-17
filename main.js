@@ -130,12 +130,12 @@ function getNoteBufferData(frequency, duration, sampleRate = 44100) {
     const t = x / sampleRate;
     
     // piano
-    let y = mult * harmonics.reduce((acc, n, i) => acc + n * Math.sin((i + 1) * w * t), 0) * Math.exp(decayFactor * w * t);
-    y += y * y * y;
-    y *= 1 + 16 * t * Math.exp(-6 * t);
+    // let y = mult * harmonics.reduce((acc, n, i) => acc + n * Math.sin((i + 1) * w * t), 0) * Math.exp(decayFactor * w * t);
+    // y += y * y * y;
+    // y *= 1 + 16 * t * Math.exp(-6 * t);
     
     // saw wave
-    // let y = (.5 - 1/Math.PI * harmonics.reduce((acc, _, i) => acc + (-1) ** (i + 1) * Math.sin(w * (i + 1) * t) / (i + 1), 0)) * Math.exp(-3 * t) * .5;
+    let y = (.5 - 1/Math.PI * harmonics.reduce((acc, _, i) => acc + (-1) ** (i + 1) * Math.sin(w * (i + 1) * t) / (i + 1), 0)) * Math.exp(-3 * t) * .5;
     return y;
   });
 }
